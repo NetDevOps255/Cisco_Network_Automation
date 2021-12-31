@@ -6,7 +6,6 @@ node {
 
         checkout scm
     }
-    */
    
     stage('Run Ansible Playbook') {
         /* This runs playbook */
