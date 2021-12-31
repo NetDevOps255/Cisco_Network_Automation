@@ -1,15 +1,15 @@
-node {
-    def app
+pipeline {
+  agent {label 'linux'}
 
-    stage('Clone repository') {
-        /* Cloning the Repository to our Workspace */
-
-        checkout scm
+  stages {
+    stage('Hello') {
+      steps {
+        sh '''
+          ansible --version
+          ansible-playbook --version
+          ansible-galaxy --version
+        '''
+      }
     }
-   
-    stage('Run Ansible Playbook') {
-        /* This runs playbook */
-
-         app = ansiblePlaybook credentialsId: '192.168.3.108', disableHostKeyChecking: true, inventory: 'hq_devices.inv', playbook: 'config-backup.yml'
-    }
+  }
 }
