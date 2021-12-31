@@ -3,20 +3,19 @@
 ## Backup Running Config
 
 - hosts: hq_devices
+  gather_facts: no
 
   tasks:
-   - name: Backup Running Config
+   - name: BACKUP RUNNING CONFIG
      ios_command:
        commands: show run
      register: config
 
-   - name: Save output to /home/travis/network-automation/ansible/IOS-backups
+   - name: SAVE OUTPUT TO LOCAL DIRECTORY
      copy:
        content: "{{config.stdout[0]}}"
-       dest: "/home/travis/network-automation/ansible/IOS-backups/{{ inventory_hostname }}-config.txt"
+       dest: "/home/travis/Network_Automation/GIT-Repo/Cisco_Network_Automation/{{ inventory_hostname }}-config-{{ now() }}.cfg"
 
-## SAVE the Running Config
-
-   - name: Save running config
+   - name: SAVE CONFIG ON CISCO DEVICES
      ios_config:
        save_when: always
