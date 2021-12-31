@@ -6,8 +6,7 @@ pipeline {
       steps {
         sh '''
           ansible --version
-          ansible-playbook --version
-          ansible-galaxy --version
+          ansible -m ping hq_devices
         '''
       }
     }
