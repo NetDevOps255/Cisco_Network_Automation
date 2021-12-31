@@ -1,0 +1,17 @@
+[hq_routers]
+CARR-HQ-R1 ansible_connection=ansible.netcommon.network_cli ansible_network_os=cisco.ios.ios ansible_user=travis ansible_password=cisco
+
+[hq_dist_switches]
+CARR-HQ-DistSW1 ansible_connection=ansible.netcommon.network_cli ansible_network_os=cisco.ios.ios ansible_user=travis ansible_password=cisco
+#CARR-HQ-DistSW2 ansible_connection=ansible.netcommon.network_cli ansible_network_os=cisco.ios.ios ansible_user=travis ansible_password=cisco
+
+[hq_acc_switches]
+CARR-HQ-AccSW1 ansible_connection=ansible.netcommon.network_cli ansible_network_os=cisco.ios.ios ansible_user=travis ansible_password=cisco
+CARR-HQ-AccSW2 ansible_connection=ansible.netcommon.network_cli ansible_network_os=cisco.ios.ios ansible_user=travis ansible_password=cisco
+CARR-HQ-AccSW3 ansible_connection=ansible.netcommon.network_cli ansible_network_os=cisco.ios.ios ansible_user=travis ansible_password=cisco
+CARR-HQ-AccSW4 ansible_connection=ansible.netcommon.network_cli ansible_network_os=cisco.ios.ios ansible_user=travis ansible_password=cisco
+
+[hq_devices:children]
+hq_routers
+hq_dist_switches
+hq_acc_switches
