@@ -4,7 +4,7 @@ pipeline {
   stages {
     stage('Clone Repository') {
       steps {
-        checkout scm
+        git clone https://github.com/NetDevOps255/Cisco_Network_Automation.git
       }
     }
     stage('Test Device Reachability') {
