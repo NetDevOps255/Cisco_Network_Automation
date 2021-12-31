@@ -5,7 +5,7 @@ pipeline {
     stage('Hello') {
       steps {
         sh '''
-          ansible --version
+          ansible-galaxy collection install -r requirements.yml
           ansible -m ping hq_devices
         '''
       }
