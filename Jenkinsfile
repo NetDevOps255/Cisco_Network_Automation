@@ -13,7 +13,6 @@ pipeline {
     
     stage('Running Ansible Playbook') {
       steps {
-        sh 'sudo chmod 777 /home/travis/Network_Automation/GIT-Repo/Cisco_Network_Automation'
         sh 'ansible-playbook config-backup.yml'
       }
     }
